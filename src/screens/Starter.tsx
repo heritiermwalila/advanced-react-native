@@ -36,5 +36,6 @@ const styles = StyleSheet.create({
     },
     footer: {
         flex: 1,
-    }
+    },
+
 })
