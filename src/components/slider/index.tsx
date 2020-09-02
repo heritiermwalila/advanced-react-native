@@ -14,16 +14,11 @@ export interface SliderProps {
 export default function Slider({label, right}: SliderProps){
     return <View style={styles.container}>
                 <View style={{...styles.titleContainer, transform: [
-            {
-                translateY: (SLIDE_HEIGHT - 100) / 2
-            },
-            {
-                translateX: (right ? 1 : -1) * (width / 2)
-            },
-            {
-                rotate: right ? '-90deg' : '90deg'
-            }
-        ]}}>
+                                {translateY: (SLIDE_HEIGHT - 100) / 2},
+                                {translateX: right ? width / 2 - 50 : -width / 2 + 50},
+                                {rotate: right ? '-90deg' : '90deg'}
+                            ]}}
+                >
                 <Text style={styles.title}>{label}</Text>
                     
                 </View>
@@ -35,7 +30,6 @@ const styles = StyleSheet.create({
         width: width
     },
     titleContainer:{
-        backgroundColor: 'red',
         justifyContent:'center',
         alignItems:'center',
         height: 100,
@@ -45,6 +39,6 @@ const styles = StyleSheet.create({
         fontSize: 80,
         fontWeight: 'bold',
         lineHeight: 80,
-        color: 'white'
+        color: '#333'
     }
 })
