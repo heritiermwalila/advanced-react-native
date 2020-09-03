@@ -6,12 +6,14 @@ const {width, height} = Dimensions.get('window')
 export const SLIDE_HEIGHT = 0.61 * height
 
 export interface SliderProps {
-    label: string;
+    title: string;
+    subtitle?: string;
+    description?: string;
     right?: boolean;
 }
 
 
-export default function Slider({label, right}: SliderProps){
+export default function Slider({title, subtitle, description, right}: SliderProps){
     return <View style={styles.container}>
                 <View style={{...styles.titleContainer, transform: [
                                 {translateY: (SLIDE_HEIGHT - 100) / 2},
@@ -19,7 +21,7 @@ export default function Slider({label, right}: SliderProps){
                                 {rotate: right ? '-90deg' : '90deg'}
                             ]}}
                 >
-                <Text style={styles.title}>{label}</Text>
+                <Text style={styles.title}>{title}</Text>
                     
                 </View>
             </View>
