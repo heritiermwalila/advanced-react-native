@@ -32,6 +32,7 @@ export default function Starter(){
                         decelerationRate="fast" 
                         showsHorizontalScrollIndicator={false} 
                         bounces={false}
+                        scrollEventThrottle={1}
                         {...{onScroll}}
                         >
                             {
@@ -47,7 +48,7 @@ export default function Starter(){
                     <Animated.View style={{...StyleSheet.absoluteFillObject, backgroundColor}}/>
                     <Animated.View style={[styles.footerContent, {width: width * slides.length, flex: 1, transform: [{translateX: multiply(x, -1)}]}]}>
                         {
-                            slides.map(({subtitle, description}, index) => (<SubSlider key={index} {...{subtitle, description}} onPress={()=>{
+                            slides.map(({subtitle, description}, index) => (<SubSlider key={index} {...{subtitle, description}} last={index === slides.length - 1} onPress={()=>{
                                 scroll.current ? scroll.current.getNode().scrollTo({x: width * (index + 1), animated: true}) : null
                             }}/>))
                         }
